@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block titulo %}Agregar Ninja{% endblock %}
+
+{% block contenido %}
+{% include '__menu.html' %}
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <form action="/agregar_ninja/procesar" method="POST" class="col-sm-6">
+                <div class="form-group ">
+                    <h2 class="text-secondary">Agregar un Ninja</h2>
+                </div>
+                <div class="form-group ">
+                    <label for="dojo">Dojo:</label>
+                    <select class="custom-select" id="dojo" name="dojo" required>
+                        {% for dojo in dojos %}
+                            <option value="{{dojo.id}}"><a href="#">{{dojo.nombre}}</a></option>
+                        {%endfor%}
+                    </select>
+                </div>
+                <div class="form-group ">
+                    <label for="nombre">Nombre:</label>
+                    <input  class="form-control" type="text" name="nombre" id="nombre">
+                </div>
+                <div class="form-group">    
+                    <label for="apellido">Apellido:</label>
+                    <input class="form-control" type="text" name="apellido" id="apellido">
+                </div>
+                <div class="form-group">
+                    <label for="edad" >edad:</label>
+                    <input class="form-control" type="text" name="edad" id="edad">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Agregar">
+            </form>
+        </div>
+    </div> 
+{% endblock %}

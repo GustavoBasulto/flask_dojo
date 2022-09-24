@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block titulo %}Dojos{% endblock %}
+
+{% block contenido%}
+{% include '__menu.html' %}
+    <div class="container mt-5 mb-5">
+        <div class="row">
+            <div class="col-sm-3 border">
+                <div class="box mt-3">
+                    <form action="/agregar_dojo/procesar" method="POST">
+                        <div class="form-group ">
+                            <h2 class="text-secondary">Agregar un Dojo</h2>
+                        </div>
+                        <div class="form-group ">
+                            <label for="nombre">Nombre Dojo:</label>
+                            <input  class="form-control" type="text" name="nombre" id="nombre">
+                        </div>
+                        <input class="btn btn-primary" type="submit" value="Agregar">
+                    </form>
+                </div>
+            </div>
+            <div class="col-sm-6 border ml-5">
+                <div class="box mt-3">
+                    <h2 class="text-secondary">Lista de Dojos</h2>
+                    <ul class="list-group">
+                        {% for dojo in dojos %}
+                        <li class="list-group-item"><a href="/dojos/{{dojo.id}}">{{dojo.nombre}}</a></li>
+                        {%endfor%}
+                        
+                    </ul>  
+                    <a class="btn btn-primary mt-3 mb-3" href="/ninjas"> Agregar Ninja</a>      
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

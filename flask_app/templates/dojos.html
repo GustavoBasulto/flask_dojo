@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block titulo %}Ninjas Dojo{% endblock %}
+
+{% block contenido %}
+{% include '__menu.html' %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="card mt-5 justify-content-center" style="width: 22rem;">
+            <div class="card-header">
+                <h3>{{dojo.nombre}} Ninjas</h3>
+            </div>
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Apellido</th>
+                    <th scope="col">Edad</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for ninja in dojo['ninjas'] %}
+                        <tr>
+                        <td>{{ninja['nombre']}}</td>
+                        <td>{{ninja['apellido']}}</td>
+                        <td>{{ninja['edad']}}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+                </table>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}
